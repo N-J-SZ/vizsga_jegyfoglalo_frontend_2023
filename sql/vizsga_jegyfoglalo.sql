@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: localhost
--- Létrehozás ideje: 2023. Máj 16. 09:00
+-- Létrehozás ideje: 2023. Máj 30. 09:35
 -- Kiszolgáló verziója: 10.4.22-MariaDB
 -- PHP verzió: 8.1.2
 
@@ -33,16 +33,18 @@ CREATE TABLE `felhasznalok` (
   `ID` int(11) NOT NULL,
   `nev` varchar(100) COLLATE utf8_hungarian_ci NOT NULL,
   `email` varchar(100) COLLATE utf8_hungarian_ci NOT NULL,
-  `telefon` varchar(30) COLLATE utf8_hungarian_ci DEFAULT NULL
+  `telefon` varchar(30) COLLATE utf8_hungarian_ci DEFAULT NULL,
+  `jelszo` varchar(40) COLLATE utf8_hungarian_ci DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `felhasznalok`
 --
 
-INSERT INTO `felhasznalok` (`ID`, `nev`, `email`, `telefon`) VALUES
-(1, 'Teszt Elek', 'teszt1@gmail.com', '06203334455'),
-(2, 'Példa Béla', 'teszt2@gmail.com', '06304567898');
+INSERT INTO `felhasznalok` (`ID`, `nev`, `email`, `telefon`, `jelszo`) VALUES
+(1, 'Teszt Elek', 'teszt1@gmail.com', '06203334455', '2023-05-24 18:28:32'),
+(2, 'Példa Béla', 'teszt2@gmail.com', '06304567898', '2023-05-24 18:28:32'),
+(11, 'Gipsz Jakab', 'gipsz@jakab.hu', '06203334455', '2023-05-24 18:28:32');
 
 -- --------------------------------------------------------
 
@@ -391,7 +393,7 @@ ALTER TABLE `koncertek`
 -- AUTO_INCREMENT a táblához `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT a táblához `fellepok`
